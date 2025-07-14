@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>いずみ</title>
+<style>
+    body {
+        background-color: #FFF0F5;
+        color: #333333;
+        font-family: "MS PGothic", "Hiragino Kaku Gothic Pro", sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-image: 
+            repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 182, 193, 0.1) 10px,
+                rgba(255, 182, 193, 0.1) 20px
+            );
+    }
+    .container {
+        width: 100%;
+        max-width: 480px;
+        margin: 20px auto;
+        border: 3px solid #FF69B4;
+        background-color: #FFFFFF;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(255, 182, 193, 0.3);
+    }
+    header {
+        background: linear-gradient(135deg, #FFB6C1, #FFC0CB);
+        color: #FFFFFF;
+        padding: 15px;
+        text-align: center;
+        font-weight: bold;
+    }
+    header h1 {
+        font-size: 22px;
+        margin: 0;
+        letter-spacing: 2px;
+        text-shadow: 2px 2px 0 rgba(255, 105, 180, 0.3);
+    }
+    main {
+        padding: 20px;
+    }
+    .profile-header {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    .profile-img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 3px solid #FFB6C1;
+        box-shadow: 0 0 15px rgba(255, 182, 193, 0.5);
+    }
+    .profile-name {
+        margin-top: 15px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #FF69B4;
+    }
+    .twitter-link {
+        margin-top: 10px;
+    }
+    .twitter-link a {
+        color: #FF69B4;
+        text-decoration: none;
+        font-size: 14px;
+    }
+    .twitter-link a:hover {
+        text-decoration: underline;
+    }
+    .profile-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background-color: #FFFAFA;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .profile-table th, .profile-table td {
+        border: 1px solid #FFE4E1;
+        padding: 10px;
+        vertical-align: top;
+    }
+    .profile-table th {
+        background-color: #FFF0F5;
+        width: 35%;
+        text-align: left;
+        color: #FF69B4;
+        font-weight: bold;
+    }
+    .profile-table td {
+        background-color: #FFFFFF;
+        color: #666666;
+    }
+    .decoration {
+        color: #FFB6C1;
+        text-align: center;
+        letter-spacing: 3px;
+        margin: 20px 0;
+        font-size: 14px;
+    }
+    .message {
+        text-align: center;
+        margin: 20px 0;
+        padding: 15px;
+        background-color: #FFF0F5;
+        border-radius: 10px;
+        color: #FF69B4;
+        font-weight: bold;
+    }
+    .blink {
+        animation: blink-animation 1.5s ease-in-out infinite;
+    }
+    @keyframes blink-animation {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.3; }
+    }
+    footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 12px;
+        background-color: #FFF0F5;
+        color: #999999;
+    }
+    .counter {
+        border: 2px dashed #FFB6C1;
+        padding: 8px 15px;
+        display: inline-block;
+        background-color: #FFFFFF;
+        border-radius: 20px;
+        color: #FF69B4;
+        font-weight: bold;
+    }
+    @media (max-width: 480px) {
+        .container {
+            margin: 10px;
+            border-radius: 10px;
+        }
+        header h1 {
+            font-size: 18px;
+        }
+        main {
+            padding: 15px;
+        }
+        .profile-img {
+            width: 80px;
+            height: 80px;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>♡ My Profile ♡</h1>
+    </header>
+    <main>
+        <div class="profile-header">
+            <img src="https://unavatar.io/twitter/haru_BCG2022" class="profile-img" alt="プロフィール画像" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNGRkI2QzEiLz4KPHRleHQgeD0iNTAiIHk9IjU1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjQwIiBmaWxsPSIjRkZGRkZGIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiI+4pmhPC90ZXh0Pgo8L3N2Zz4='">
+            <div class="profile-name">いずみ</div>
+            <div class="twitter-link">
+                <a href="https://twitter.com/haru_BCG2022" target="_blank">@haru_BCG2022</a>
+            </div>
+        </div>
+        
+        <div class="decoration">♥ ♡ ♥ ♡ ♥ ♡ ♥</div>
+        
+        <table class="profile-table">
+            
+    <tr>
+      <th>HN</th>
+      <td>いずみ</td>
+    </tr>
+    <tr>
+      <th>HNの由来</th>
+      <td>苗字の一部</td>
+    </tr>
+    <tr>
+      <th>性別</th>
+      <td>女</td>
+    </tr>
+    <tr>
+      <th>誕生日</th>
+      <td>12/15</td>
+    </tr>
+    <tr>
+      <th>星座</th>
+      <td>いて座</td>
+    </tr>
+    <tr>
+      <th>血液型</th>
+      <td>O型</td>
+    </tr>
+    <tr>
+      <th>住んでいるところ</th>
+      <td>関東圏</td>
+    </tr>
+    <tr>
+      <th>生まれたところ</th>
+      <td>北国</td>
+    </tr>
+    <tr>
+      <th>職業</th>
+      <td>ドラストの店員</td>
+    </tr>
+    <tr>
+      <th>身長</th>
+      <td>159cm</td>
+    </tr>
+    <tr>
+      <th>体重</th>
+      <td>5〇kg</td>
+    </tr>
+    <tr>
+      <th>足のサイズ</th>
+      <td>24cm</td>
+    </tr>
+    <tr>
+      <th>趣味</th>
+      <td>読書、ライブ参戦</td>
+    </tr>
+    <tr>
+      <th>握力</th>
+      <td>左右ともに20くらい</td>
+    </tr>
+    <tr>
+      <th>髪型</th>
+      <td>ボブ</td>
+    </tr>
+    <tr>
+      <th>口癖</th>
+      <td>なしたの？</td>
+    </tr>
+    <tr>
+      <th>持っている資格</th>
+      <td>医療事務、ホスピタルコンシェルジュ、英検、漢検</td>
+    </tr>
+    <tr>
+      <th>使っている携帯電話</th>
+      <td>Androidの折りたたみのやつ</td>
+    </tr>
+    <tr>
+      <th>好きな男性のタイプ</th>
+      <td>笑ったら目がなくなる人</td>
+    </tr>
+    <tr>
+      <th>好きな女性のタイプ</th>
+      <td>一緒にいて疲れない人</td>
+    </tr>
+    <tr>
+      <th>好きな言葉</th>
+      <td>まぁ、なんとかなる。</td>
+    </tr>
+    <tr>
+      <th>好きな食べ物</th>
+      <td>抹茶のお菓子、梅味のお菓子</td>
+    </tr>
+    <tr>
+      <th>嫌いな食べ物</th>
+      <td>きくらげとか独特の歯ごたえのもの</td>
+    </tr>
+    <tr>
+      <th>好きな映画</th>
+      <td>サマーウォーズ、チャーリーとチョコレート工場、ハリーポッター</td>
+    </tr>
+    <tr>
+      <th>好きな音楽</th>
+      <td>flumpool、フレデリック、星野源</td>
+    </tr>
+    <tr>
+      <th>好きな動物</th>
+      <td>犬</td>
+    </tr>
+    <tr>
+      <th>休日の過ごし方</th>
+      <td>のんびりする今一番欲しいもの</td>
+    </tr>
+    <tr>
+      <th>今一番行きたいところ</th>
+      <td>北海道</td>
+    </tr>
+    <tr>
+      <th>初めて買ったＣＤ</th>
+      <td>だんご三兄弟</td>
+    </tr>
+        </table>
+        
+        <div class="decoration">♪ ♫ ♪ ♫ ♪ ♫ ♪</div>
+        
+        <div class="message">
+            <span class="blink">＼ よろしくお願いします ／</span>
+        </div>
+    </main>
+    <footer>
+        <div class="counter">
+            あなたは <span>6574</span> 人目の訪問者です
+        </div>
+        <p>&copy; 2025 いずみ</p>
+    </footer>
+</div>
+</body>
+</html>
