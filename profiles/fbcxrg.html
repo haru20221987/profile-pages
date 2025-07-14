@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ぴかりんず🐻</title>
+<style>
+    body {
+        background-color: #FFF0F5;
+        color: #333333;
+        font-family: "MS PGothic", "Hiragino Kaku Gothic Pro", sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-image: 
+            repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 182, 193, 0.1) 10px,
+                rgba(255, 182, 193, 0.1) 20px
+            );
+    }
+    .container {
+        width: 100%;
+        max-width: 480px;
+        margin: 20px auto;
+        border: 3px solid #FF69B4;
+        background-color: #FFFFFF;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(255, 182, 193, 0.3);
+    }
+    header {
+        background: linear-gradient(135deg, #FFB6C1, #FFC0CB);
+        color: #FFFFFF;
+        padding: 15px;
+        text-align: center;
+        font-weight: bold;
+    }
+    header h1 {
+        font-size: 22px;
+        margin: 0;
+        letter-spacing: 2px;
+        text-shadow: 2px 2px 0 rgba(255, 105, 180, 0.3);
+    }
+    main {
+        padding: 20px;
+    }
+    .profile-header {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    .profile-img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 3px solid #FFB6C1;
+        box-shadow: 0 0 15px rgba(255, 182, 193, 0.5);
+    }
+    .profile-name {
+        margin-top: 15px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #FF69B4;
+    }
+    .twitter-link {
+        margin-top: 10px;
+    }
+    .twitter-link a {
+        color: #FF69B4;
+        text-decoration: none;
+        font-size: 14px;
+    }
+    .twitter-link a:hover {
+        text-decoration: underline;
+    }
+    .profile-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background-color: #FFFAFA;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .profile-table th, .profile-table td {
+        border: 1px solid #FFE4E1;
+        padding: 10px;
+        vertical-align: top;
+    }
+    .profile-table th {
+        background-color: #FFF0F5;
+        width: 35%;
+        text-align: left;
+        color: #FF69B4;
+        font-weight: bold;
+    }
+    .profile-table td {
+        background-color: #FFFFFF;
+        color: #666666;
+    }
+    .decoration {
+        color: #FFB6C1;
+        text-align: center;
+        letter-spacing: 3px;
+        margin: 20px 0;
+        font-size: 14px;
+    }
+    .message {
+        text-align: center;
+        margin: 20px 0;
+        padding: 15px;
+        background-color: #FFF0F5;
+        border-radius: 10px;
+        color: #FF69B4;
+        font-weight: bold;
+    }
+    .blink {
+        animation: blink-animation 1.5s ease-in-out infinite;
+    }
+    @keyframes blink-animation {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.3; }
+    }
+    footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 12px;
+        background-color: #FFF0F5;
+        color: #999999;
+    }
+    .counter {
+        border: 2px dashed #FFB6C1;
+        padding: 8px 15px;
+        display: inline-block;
+        background-color: #FFFFFF;
+        border-radius: 20px;
+        color: #FF69B4;
+        font-weight: bold;
+    }
+    @media (max-width: 480px) {
+        .container {
+            margin: 10px;
+            border-radius: 10px;
+        }
+        header h1 {
+            font-size: 18px;
+        }
+        main {
+            padding: 15px;
+        }
+        .profile-img {
+            width: 80px;
+            height: 80px;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>♡ My Profile ♡</h1>
+    </header>
+    <main>
+        <div class="profile-header">
+            <img src="https://unavatar.io/twitter/haru_BCG2022" class="profile-img" alt="プロフィール画像" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNGRkI2QzEiLz4KPHRleHQgeD0iNTAiIHk9IjU1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjQwIiBmaWxsPSIjRkZGRkZGIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiI+4pmhPC90ZXh0Pgo8L3N2Zz4='">
+            <div class="profile-name">ぴかりんず🐻</div>
+            <div class="twitter-link">
+                <a href="https://twitter.com/haru_BCG2022" target="_blank">@haru_BCG2022</a>
+            </div>
+        </div>
+        
+        <div class="decoration">♥ ♡ ♥ ♡ ♥ ♡ ♥</div>
+        
+        <table class="profile-table">
+            
+    <tr>
+      <th>HN</th>
+      <td>ぴかりんず🐻</td>
+    </tr>
+    <tr>
+      <th>HNの由来</th>
+      <td>酔っ払ってつけた名前だから覚えてない㌔</td>
+    </tr>
+    <tr>
+      <th>性別</th>
+      <td>凹</td>
+    </tr>
+    <tr>
+      <th>誕生日</th>
+      <td>1月18日 ビートたけしと一緒♡</td>
+    </tr>
+    <tr>
+      <th>星座</th>
+      <td>ダマスカスヤギ🐐</td>
+    </tr>
+    <tr>
+      <th>血液型</th>
+      <td>クワガタ嫌い🥹</td>
+    </tr>
+    <tr>
+      <th>前世</th>
+      <td>お姫👸</td>
+    </tr>
+    <tr>
+      <th>住んでいるところ</th>
+      <td>地球🌏</td>
+    </tr>
+    <tr>
+      <th>生まれたところ</th>
+      <td>病院🏥</td>
+    </tr>
+    <tr>
+      <th>職業</th>
+      <td>平成ギャル🤘</td>
+    </tr>
+    <tr>
+      <th>学年</th>
+      <td>2007年高1だ㌔</td>
+    </tr>
+    <tr>
+      <th>絡むーちょ</th>
+      <td>ゲスブで絡飯🖐</td>
+    </tr>
+    <tr>
+      <th>似ている芸能人</th>
+      <td>かびるんるん</td>
+    </tr>
+    <tr>
+      <th>身長</th>
+      <td>りんご5つぶん</td>
+    </tr>
+    <tr>
+      <th>体重</th>
+      <td>りんご3つぶん</td>
+    </tr>
+    <tr>
+      <th>足のサイズ</th>
+      <td>23とか(靴によらない⁉︎)</td>
+    </tr>
+    <tr>
+      <th>手の長さ</th>
+      <td>こんくらい🖐</td>
+    </tr>
+    <tr>
+      <th>趣味</th>
+      <td>喫煙😎</td>
+    </tr>
+    <tr>
+      <th>特技</th>
+      <td>年齢聞いたら2007年は何歳か当てれます🔮</td>
+    </tr>
+    <tr>
+      <th>握力</th>
+      <td>測ったことない</td>
+    </tr>
+    <tr>
+      <th>髪型</th>
+      <td>スーパーロングEXT40本金メッシュ卍</td>
+    </tr>
+    <tr>
+      <th>口癖</th>
+      <td>え？ゆりな〜</td>
+    </tr>
+    <tr>
+      <th>性格</th>
+      <td>みんなが動画でみてるまま🫶</td>
+    </tr>
+    <tr>
+      <th>嗜好品</th>
+      <td>アイコス😎卍★★★★★★★</td>
+    </tr>
+    <tr>
+      <th>自慢なこと</th>
+      <td>32年間仲良しのくまがいること🐻</td>
+    </tr>
+    <tr>
+      <th>持っている資格</th>
+      <td>原付免許🛵</td>
+    </tr>
+    <tr>
+      <th>使っている携帯電話</th>
+      <td>W44K藁 嘘だよ🖐アイホン</td>
+    </tr>
+    <tr>
+      <th>好きな男性のタイプ</th>
+      <td>ギャル男</td>
+    </tr>
+    <tr>
+      <th>好きな女性のタイプ</th>
+      <td>友達ジャンルびびるほどバラバラ</td>
+    </tr>
+    <tr>
+      <th>好きな言葉</th>
+      <td>愛羅武勇❤️</td>
+    </tr>
+    <tr>
+      <th>好きな芸能人</th>
+      <td>若槻千夏、浜崎あゆみ、つーちゃん</td>
+    </tr>
+    <tr>
+      <th>好きな食べ物</th>
+      <td>ポテト🍟</td>
+    </tr>
+    <tr>
+      <th>嫌いな食べ物</th>
+      <td>ホタテ</td>
+    </tr>
+    <tr>
+      <th>好きな飲み物</th>
+      <td>レモンサワー(昔はリプトン)</td>
+    </tr>
+    <tr>
+      <th>嫌いな飲み物</th>
+      <td>テキーラ</td>
+    </tr>
+    <tr>
+      <th>好きな教科</th>
+      <td>学活</td>
+    </tr>
+    <tr>
+      <th>嫌いな教科</th>
+      <td>ぜんぶ😘</td>
+    </tr>
+    <tr>
+      <th>好きなテレビ番組</th>
+      <td>エンタ、らぶちぇん</td>
+    </tr>
+    <tr>
+      <th>好きな映画</th>
+      <td>バトルロワイアル</td>
+    </tr>
+    <tr>
+      <th>好きな本</th>
+      <td>GALS!、ギャグ漫画日和</td>
+    </tr>
+    <tr>
+      <th>好きなスポーツ</th>
+      <td>ドッヂボール</td>
+    </tr>
+    <tr>
+      <th>好きな音楽</th>
+      <td>セプテンバーさん</td>
+    </tr>
+    <tr>
+      <th>好きなブランド</th>
+      <td>セシルマクビー🩷🩷</td>
+    </tr>
+    <tr>
+      <th>愛用の香水</th>
+      <td>エンジェルハート(ガチ)</td>
+    </tr>
+    <tr>
+      <th>好きな花</th>
+      <td>ハイビスカス🌺</td>
+    </tr>
+    <tr>
+      <th>好きなゲーム</th>
+      <td>湾岸ミッドナイト🚗(ガチ勢)</td>
+    </tr>
+    <tr>
+      <th>愛車</th>
+      <td>メタブルランボー(湾岸ミッドナイト)</td>
+    </tr>
+    <tr>
+      <th>将来の夢</th>
+      <td>読モ</td>
+    </tr>
+    <tr>
+      <th>好きな動物</th>
+      <td>くま🐻ハムスター🐹</td>
+    </tr>
+    <tr>
+      <th>休日の過ごし方</th>
+      <td>りあるにガラケーいじってるww</td>
+    </tr>
+    <tr>
+      <th>尊敬する人</th>
+      <td>浜崎あゆみ共和国</td>
+    </tr>
+    <tr>
+      <th>座右の銘</th>
+      <td>平成ギャル最強ぢゃん</td>
+    </tr>
+    <tr>
+      <th>今一番欲しいもの</th>
+      <td>知能</td>
+    </tr>
+    <tr>
+      <th>今一番行きたいところ</th>
+      <td>全盛期の渋谷</td>
+    </tr>
+    <tr>
+      <th>今一番やりたいこと</th>
+      <td>前略プロフィールを広めたい</td>
+    </tr>
+    <tr>
+      <th>よく使う路線</th>
+      <td>セクシー路線😘(ｾｸｼｰﾋﾞｰﾑ😘)</td>
+    </tr>
+    <tr>
+      <th>よく遊ぶところ</th>
+      <td>家wwww</td>
+    </tr>
+    <tr>
+      <th>カラオケでよく歌う曲</th>
+      <td>倖田來未が1番歌いやすい☝️</td>
+    </tr>
+    <tr>
+      <th>初めて買ったＣＤ</th>
+      <td>だんご三兄弟</td>
+    </tr>
+    <tr>
+      <th>マイブーム</th>
+      <td>ハムスターと遊ぶ🐹</td>
+    </tr>
+    <tr>
+      <th>最近ひそかに興味があること</th>
+      <td>世界平和</td>
+    </tr>
+    <tr>
+      <th>生まれ変わったら</th>
+      <td>あ♡た♡ち</td>
+    </tr>
+    <tr>
+      <th>世界平和に必要なのは</th>
+      <td>マジレスすると「懐かしい」と思うなんか共通点?みたいなやつじゃない？🪄︎︎◝✩</td>
+    </tr>
+    <tr>
+      <th>兎に角主張したい</th>
+      <td>黒歴史成仏なんかさせないよ🖐</td>
+    </tr>
+    <tr>
+      <th>疑問に思っている事</th>
+      <td>みんなロムりすぎじゃない⁉️</td>
+    </tr>
+    <tr>
+      <th>ここだけの話</th>
+      <td>みんなの記憶些細なことでもいいから教えて＼(^o^)／全部私がネタにしてあげるから😉🫵✨カッ</td>
+    </tr>
+        </table>
+        
+        <div class="decoration">♪ ♫ ♪ ♫ ♪ ♫ ♪</div>
+        
+        <div class="message">
+            <span class="blink">＼ よろしくお願いします ／</span>
+        </div>
+    </main>
+    <footer>
+        <div class="counter">
+            あなたは <span>6821</span> 人目の訪問者です
+        </div>
+        <p>&copy; 2025 ぴかりんず🐻</p>
+    </footer>
+</div>
+</body>
+</html>
