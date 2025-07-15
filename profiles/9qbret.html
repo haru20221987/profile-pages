@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yama</title>
+<style>
+    body {
+        background-color: #F5F5F5;
+        color: #333333;
+        font-family: "MS PGothic", "Hiragino Kaku Gothic Pro", sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        width: 100%;
+        max-width: 480px;
+        margin: 20px auto;
+        border: 1px solid #E0E0E0;
+        background-color: #FFFFFF;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    header {
+        background: #FF8C00;
+        color: #FFFFFF;
+        padding: 15px;
+        text-align: center;
+        font-weight: bold;
+    }
+    header h1 {
+        font-size: 22px;
+        margin: 0;
+        letter-spacing: 1px;
+    }
+    main {
+        padding: 20px;
+    }
+    .profile-header {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    .profile-img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 3px solid #FFD4A3;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .profile-name {
+        margin-top: 15px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #FF8C00;
+    }
+    .twitter-link {
+        margin-top: 10px;
+    }
+    .twitter-link a {
+        color: #FF8C00;
+        text-decoration: none;
+        font-size: 14px;
+    }
+    .twitter-link a:hover {
+        text-decoration: underline;
+    }
+    .profile-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background-color: #FAFAFA;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .profile-table th, .profile-table td {
+        border: 1px solid #E8E8E8;
+        padding: 10px;
+        vertical-align: top;
+    }
+    .profile-table th {
+        background-color: #FFF3E0;
+        width: 35%;
+        text-align: left;
+        color: #666666;
+        font-weight: bold;
+    }
+    .profile-table td {
+        background-color: #FFFFFF;
+        color: #333333;
+    }
+    .decoration {
+        color: #CCCCCC;
+        text-align: center;
+        letter-spacing: 3px;
+        margin: 20px 0;
+        font-size: 14px;
+    }
+    .message {
+        text-align: center;
+        margin: 20px 0;
+        padding: 15px;
+        background-color: #FFF8E7;
+        border-radius: 8px;
+        color: #FF8C00;
+        font-weight: bold;
+    }
+    footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 12px;
+        background-color: #FAFAFA;
+        color: #999999;
+        border-top: 1px solid #E8E8E8;
+    }
+    .counter {
+        border: 1px solid #FFD4A3;
+        padding: 8px 15px;
+        display: inline-block;
+        background-color: #FFF8E7;
+        border-radius: 20px;
+        color: #FF8C00;
+        font-weight: bold;
+    }
+    .loading-counter {
+        display: inline-block;
+        min-width: 60px;
+        text-align: center;
+    }
+    @media (max-width: 480px) {
+        .container {
+            margin: 10px;
+            border-radius: 8px;
+        }
+        header h1 {
+            font-size: 18px;
+        }
+        main {
+            padding: 15px;
+        }
+        .profile-img {
+            width: 80px;
+            height: 80px;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>★ My Profile ★</h1>
+    </header>
+    <main>
+        <div class="profile-header">
+            <img src="https://unavatar.io/twitter/NFT3140" class="profile-img" alt="プロフィール画像" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNGRkQ0QTMiLz4KPHRleHQgeD0iNTAiIHk9IjU1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjQwIiBmaWxsPSIjRkY4QzAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiI+4piGPC90ZXh0Pgo8L3N2Zz4='">
+            <div class="profile-name">Yama</div>
+            <div class="twitter-link">
+                <a href="https://twitter.com/NFT3140" target="_blank">@NFT3140</a>
+            </div>
+        </div>
+        
+        <div class="decoration">─────────────</div>
+        
+        <table class="profile-table">
+            
+    <tr>
+      <th>HN</th>
+      <td>Yama</td>
+    </tr>
+    <tr>
+      <th>HNの由来</th>
+      <td>本名</td>
+    </tr>
+    <tr>
+      <th>性別</th>
+      <td>凸</td>
+    </tr>
+    <tr>
+      <th>誕生日</th>
+      <td>1999年4月13日</td>
+    </tr>
+    <tr>
+      <th>星座</th>
+      <td>牡羊座</td>
+    </tr>
+    <tr>
+      <th>血液型</th>
+      <td>O</td>
+    </tr>
+    <tr>
+      <th>前世</th>
+      <td>前世はイケメン</td>
+    </tr>
+    <tr>
+      <th>住んでいるところ</th>
+      <td>埼玉</td>
+    </tr>
+    <tr>
+      <th>生まれたところ</th>
+      <td>埼玉</td>
+    </tr>
+    <tr>
+      <th>職業</th>
+      <td>コミュニティ運営</td>
+    </tr>
+    <tr>
+      <th>学年</th>
+      <td>社会人4年生</td>
+    </tr>
+    <tr>
+      <th>絡むーちょ</th>
+      <td>？？？</td>
+    </tr>
+    <tr>
+      <th>似ている芸能人</th>
+      <td>神木隆之介って言われて嬉しかった</td>
+    </tr>
+    <tr>
+      <th>身長</th>
+      <td>171</td>
+    </tr>
+    <tr>
+      <th>体重</th>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>足のサイズ</th>
+      <td>26.0</td>
+    </tr>
+    <tr>
+      <th>手の長さ</th>
+      <td>こんくらい👍</td>
+    </tr>
+    <tr>
+      <th>趣味</th>
+      <td>⛳</td>
+    </tr>
+    <tr>
+      <th>特技</th>
+      <td>⚽</td>
+    </tr>
+    <tr>
+      <th>握力</th>
+      <td>🦍</td>
+    </tr>
+    <tr>
+      <th>髪型</th>
+      <td>センターに分けがち</td>
+    </tr>
+    <tr>
+      <th>口癖</th>
+      <td>えっとー…</td>
+    </tr>
+    <tr>
+      <th>性格</th>
+      <td>優男</td>
+    </tr>
+    <tr>
+      <th>嗜好品</th>
+      <td>🍻</td>
+    </tr>
+    <tr>
+      <th>自慢なこと</th>
+      <td>ぴかコミュを運営できていること✌️</td>
+    </tr>
+    <tr>
+      <th>持っている資格</th>
+      <td>普通免許</td>
+    </tr>
+    <tr>
+      <th>使っている携帯電話</th>
+      <td>🍎</td>
+    </tr>
+    <tr>
+      <th>好きな男性のタイプ</th>
+      <td>イケメン</td>
+    </tr>
+    <tr>
+      <th>好きな女性のタイプ</th>
+      <td>かわいい</td>
+    </tr>
+    <tr>
+      <th>好きな言葉</th>
+      <td>幸せ</td>
+    </tr>
+    <tr>
+      <th>好きな芸能人</th>
+      <td>橋本環奈🥹</td>
+    </tr>
+    <tr>
+      <th>好きな食べ物</th>
+      <td>🍖</td>
+    </tr>
+    <tr>
+      <th>嫌いな食べ物</th>
+      <td>ない</td>
+    </tr>
+    <tr>
+      <th>好きな飲み物</th>
+      <td>🍺</td>
+    </tr>
+    <tr>
+      <th>嫌いな飲み物</th>
+      <td>🥃</td>
+    </tr>
+    <tr>
+      <th>好きな教科</th>
+      <td>生物</td>
+    </tr>
+    <tr>
+      <th>嫌いな教科</th>
+      <td>ない</td>
+    </tr>
+    <tr>
+      <th>好きなテレビ番組</th>
+      <td>水ダウ</td>
+    </tr>
+    <tr>
+      <th>好きな映画</th>
+      <td>ない</td>
+    </tr>
+    <tr>
+      <th>好きな本</th>
+      <td>ない</td>
+    </tr>
+    <tr>
+      <th>好きなスポーツ</th>
+      <td>⚽</td>
+    </tr>
+    <tr>
+      <th>好きな音楽</th>
+      <td>RAD</td>
+    </tr>
+    <tr>
+      <th>好きなブランド</th>
+      <td>ユニクロ</td>
+    </tr>
+    <tr>
+      <th>愛用の香水</th>
+      <td>くさい</td>
+    </tr>
+    <tr>
+      <th>好きな花</th>
+      <td>🌹</td>
+    </tr>
+    <tr>
+      <th>好きなゲーム</th>
+      <td>サカつくやる予定</td>
+    </tr>
+    <tr>
+      <th>愛車</th>
+      <td>ない🥹</td>
+    </tr>
+    <tr>
+      <th>将来の夢</th>
+      <td>サッカー選手だった</td>
+    </tr>
+    <tr>
+      <th>好きな動物</th>
+      <td>リス飼ってた🐿</td>
+    </tr>
+    <tr>
+      <th>休日の過ごし方</th>
+      <td>妻とだらだら</td>
+    </tr>
+    <tr>
+      <th>尊敬する人</th>
+      <td>ぴかりんず🐻</td>
+    </tr>
+    <tr>
+      <th>座右の銘</th>
+      <td>ホールインワン</td>
+    </tr>
+    <tr>
+      <th>今一番欲しいもの</th>
+      <td>お金</td>
+    </tr>
+    <tr>
+      <th>今一番行きたいところ</th>
+      <td>ハワイ</td>
+    </tr>
+    <tr>
+      <th>今一番やりたいこと</th>
+      <td>⛳</td>
+    </tr>
+    <tr>
+      <th>よく使う路線</th>
+      <td>スカイツリーライン</td>
+    </tr>
+    <tr>
+      <th>よく遊ぶところ</th>
+      <td>家</td>
+    </tr>
+    <tr>
+      <th>カラオケでよく歌う曲</th>
+      <td>天体観測</td>
+    </tr>
+    <tr>
+      <th>初めて買ったＣＤ</th>
+      <td>買ったことないw</td>
+    </tr>
+    <tr>
+      <th>マイブーム</th>
+      <td>コミュニティ活動</td>
+    </tr>
+    <tr>
+      <th>最近ひそかに興味があること</th>
+      <td>カワラボ</td>
+    </tr>
+    <tr>
+      <th>生まれ変わったら</th>
+      <td>また自分✨</td>
+    </tr>
+    <tr>
+      <th>世界平和に必要なのは</th>
+      <td>ぴかりんず🐻</td>
+    </tr>
+    <tr>
+      <th>兎に角主張したい事</th>
+      <td>このコミュニティを楽しんで活動してほしいです！！</td>
+    </tr>
+    <tr>
+      <th>疑問に思っている事</th>
+      <td>平成を分からない自分で良いのかw</td>
+    </tr>
+    <tr>
+      <th>ここだけの話</th>
+      <td>ぴかりんず🐻さんめっちゃ良い人です🫶</td>
+    </tr>
+        </table>
+        
+        <div class="decoration">─────────────</div>
+        
+        <div class="message">
+            ＼ よろしくお願いします ／
+        </div>
+    </main>
+    <footer>
+        <div class="counter">
+            あなたは <img src="https://hits.sh/muraprofile.github.io/profiles/9qbret.svg?style=flat&label=&color=FF8C00&labelColor=FF8C00" 
+                         alt="訪問者数" 
+                         style="vertical-align: middle; height: 20px; display: inline-block;"> 人目の訪問者です
+        </div>
+        <p>&copy; 2025 Yama</p>
+    </footer>
+</div>
+</body>
+</html>
