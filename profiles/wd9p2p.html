@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>haru</title>
+<style>
+    body {
+        background-color: #F5F5F5;
+        color: #333333;
+        font-family: "MS PGothic", "Hiragino Kaku Gothic Pro", sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        width: 100%;
+        max-width: 480px;
+        margin: 20px auto;
+        border: 1px solid #E0E0E0;
+        background-color: #FFFFFF;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    header {
+        background: #FF8C00;
+        color: #FFFFFF;
+        padding: 15px;
+        text-align: center;
+        font-weight: bold;
+    }
+    header h1 {
+        font-size: 22px;
+        margin: 0;
+        letter-spacing: 1px;
+    }
+    main {
+        padding: 20px;
+    }
+    .profile-header {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    .profile-img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 3px solid #FFD4A3;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .profile-name {
+        margin-top: 15px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #FF8C00;
+    }
+    .twitter-link {
+        margin-top: 10px;
+    }
+    .twitter-link a {
+        color: #FF8C00;
+        text-decoration: none;
+        font-size: 14px;
+    }
+    .twitter-link a:hover {
+        text-decoration: underline;
+    }
+    .profile-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background-color: #FAFAFA;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .profile-table th, .profile-table td {
+        border: 1px solid #E8E8E8;
+        padding: 10px;
+        vertical-align: top;
+    }
+    .profile-table th {
+        background-color: #FFF3E0;
+        width: 35%;
+        text-align: left;
+        color: #666666;
+        font-weight: bold;
+    }
+    .profile-table td {
+        background-color: #FFFFFF;
+        color: #333333;
+    }
+    .decoration {
+        color: #CCCCCC;
+        text-align: center;
+        letter-spacing: 3px;
+        margin: 20px 0;
+        font-size: 14px;
+    }
+    .message {
+        text-align: center;
+        margin: 20px 0;
+        padding: 15px;
+        background-color: #FFF8E7;
+        border-radius: 8px;
+        color: #FF8C00;
+        font-weight: bold;
+    }
+    footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 12px;
+        background-color: #FAFAFA;
+        color: #999999;
+        border-top: 1px solid #E8E8E8;
+    }
+    .counter {
+        border: 1px solid #FFD4A3;
+        padding: 8px 15px;
+        display: inline-block;
+        background-color: #FFF8E7;
+        border-radius: 20px;
+        color: #FF8C00;
+        font-weight: bold;
+    }
+    .loading-counter {
+        display: inline-block;
+        min-width: 60px;
+        text-align: center;
+    }
+    @media (max-width: 480px) {
+        .container {
+            margin: 10px;
+            border-radius: 8px;
+        }
+        header h1 {
+            font-size: 18px;
+        }
+        main {
+            padding: 15px;
+        }
+        .profile-img {
+            width: 80px;
+            height: 80px;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>★ My Profile ★</h1>
+    </header>
+    <main>
+        <div class="profile-header">
+            <img src="https://unavatar.io/twitter/haru_BCG2022" class="profile-img" alt="プロフィール画像" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNGRkQ0QTMiLz4KPHRleHQgeD0iNTAiIHk9IjU1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjQwIiBmaWxsPSIjRkY4QzAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiI+4piGPC90ZXh0Pgo8L3N2Zz4='">
+            <div class="profile-name">haru</div>
+            <div class="twitter-link">
+                <a href="https://twitter.com/haru_BCG2022" target="_blank">@haru_BCG2022</a>
+            </div>
+        </div>
+        
+        <div class="decoration">─────────────</div>
+        
+        <table class="profile-table">
+            
+    <tr>
+      <th>HN</th>
+      <td>haru</td>
+    </tr>
+    <tr>
+      <th>テスト</th>
+      <td>テスト</td>
+    </tr>
+        </table>
+        
+        <div class="decoration">─────────────</div>
+        
+        <div class="message">
+            ＼ よろしくお願いします ／
+        </div>
+    </main>
+    <footer>
+        <div class="counter">
+            あなたは <span id="visitor-count" class="loading-counter">
+                <span class="count-display">...</span>
+            </span> 人目の訪問者です
+        </div>
+        <p>&copy; 2025 haru</p>
+    </footer>
+</div>
+
+<script>
+// 訪問者カウンター（改良版）
+(function() {
+    const profileId = 'wd9p2p';
+    
+    // CountAPI.xyzを使用（シンプルなカウントアップ）
+    // 各プロフィールごとに独立したカウンター
+    const counterUrl = 'https://api.countapi.xyz/hit/muraprofile.github.io/' + profileId;
+    
+    fetch(counterUrl)
+        .then(response => response.json())
+        .then(data => {
+            // 総訪問数を表示
+            document.querySelector('.count-display').innerText = data.value.toLocaleString();
+        })
+        .catch(error => {
+            console.error('Counter error:', error);
+            // エラー時の代替処理
+            // JSONPを使った別の方法を試す
+            const script = document.createElement('script');
+            script.src = 'https://api.countapi.xyz/hit/muraprofile.github.io/' + profileId + '?callback=updateCounter';
+            document.body.appendChild(script);
+            
+            // コールバック関数
+            window.updateCounter = function(data) {
+                document.querySelector('.count-display').innerText = data.value.toLocaleString();
+            };
+        });
+})();
+</script>
+</body>
+</html>
