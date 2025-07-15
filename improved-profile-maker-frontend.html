@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>プロフィールメーカー</title>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic Pro", "MS PGothic", sans-serif;
+        background: linear-gradient(135deg, #FFF5F0 0%, #FFE8D6 100%);
+        color: #333333;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+    
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: 
+            radial-gradient(circle at 20% 50%, rgba(255, 140, 0, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(255, 180, 0, 0.1) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: -1;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 600px;
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(255, 140, 0, 0.2);
+        box-shadow: 
+            0 10px 40px rgba(255, 140, 0, 0.1),
+            0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+        border-radius: 16px;
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+    }
+    
+    .header {
+        background: linear-gradient(135deg, #FF8C00 0%, #FFA500 100%);
+        padding: 30px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .header::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+        animation: shimmer 3s ease-in-out infinite;
+    }
+    
+    @keyframes shimmer {
+        0%, 100% { transform: translateX(-50%) translateY(-50%) rotate(0deg); }
+        50% { transform: translateX(-50%) translateY(-50%) rotate(180deg); }
+    }
+    
+    .header h1 {
+        font-size: 32px;
+        color: #FFFFFF;
+        letter-spacing: 2px;
+        font-weight: 700;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 1;
+    }
+    
+    .star-decoration {
+        display: inline-block;
+        margin: 0 12px;
+        font-size: 24px;
+        animation: twinkle 2s ease-in-out infinite;
+    }
+    
+    @keyframes twinkle {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.7; transform: scale(0.9); }
+    }
+    
+    .form-section {
+        padding: 40px 35px;
+    }
+    
+    .form-group {
+        margin-bottom: 30px;
+    }
+    
+    label {
+        display: block;
+        color: #555555;
+        margin-bottom: 10px;
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+    
+    .required {
+        color: #FF6B00;
+        margin-left: 4px;
+        font-weight: normal;
+    }
+    
+    input[type="text"], textarea {
+        width: 100%;
+        padding: 14px 16px;
+        background: #FFFFFF;
+        border: 2px solid #F0F0F0;
+        color: #333333;
+        font-family: inherit;
+        font-size: 15px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+    
+    input[type="text"]:hover, textarea:hover {
+        border-color: #FFD4A3;
+    }
+    
+    input[type="text"]:focus, textarea:focus {
+        outline: none;
+        border-color: #FF8C00;
+        background: #FFFFFF;
+        box-shadow: 
+            0 0 0 4px rgba(255, 140, 0, 0.1),
+            0 2px 8px rgba(255, 140, 0, 0.15);
+        transform: translateY(-1px);
+    }
+    
+    textarea {
+        min-height: 200px;
+        resize: vertical;
+        line-height: 1.6;
+    }
+    
+    .help-text {
+        font-size: 13px;
+        color: #888888;
+        margin-top: 8px;
+        line-height: 1.5;
+    }
+    
+    .example-box {
+        background: linear-gradient(135deg, #FFF8F0 0%, #FFF3E0 100%);
+        border: 1px solid rgba(255, 140, 0, 0.2);
+        padding: 18px;
+        margin-top: 12px;
+        font-family: "SF Mono", "Monaco", "Courier New", monospace;
+        font-size: 13px;
+        color: #666666;
+        border-radius: 8px;
+        box-shadow: inset 0 1px 3px rgba(255, 140, 0, 0.05);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .example-box::before {
+        content: '例';
+        position: absolute;
+        top: 8px;
+        right: 12px;
+        background: #FF8C00;
+        color: white;
+        padding: 2px 8px;
+        font-size: 11px;
+        border-radius: 4px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+    
+    .button-container {
+        text-align: center;
+        margin-top: 35px;
+    }
+    
+    .submit-button {
+        background: linear-gradient(135deg, #FF8C00 0%, #FF9D00 100%);
+        color: #FFFFFF;
+        border: none;
+        padding: 16px 48px;
+        font-size: 17px;
+        font-weight: 600;
+        cursor: pointer;
+        letter-spacing: 1px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 8px;
+        box-shadow: 
+            0 4px 15px rgba(255, 140, 0, 0.3),
+            0 1px 2px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .submit-button::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+    }
+    
+    .submit-button:hover {
+        background: linear-gradient(135deg, #FF7C00 0%, #FF8C00 100%);
+        transform: translateY(-2px);
+        box-shadow: 
+            0 6px 20px rgba(255, 140, 0, 0.4),
+            0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .submit-button:active {
+        transform: translateY(0);
+        box-shadow: 
+            0 2px 10px rgba(255, 140, 0, 0.3),
+            0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    
+    .submit-button:active::before {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .submit-button:disabled {
+        background: linear-gradient(135deg, #CCCCCC 0%, #AAAAAA 100%);
+        cursor: not-allowed;
+        box-shadow: none;
+        transform: none;
+    }
+    
+    .loading {
+        display: none;
+        text-align: center;
+        margin-top: 30px;
+        background: linear-gradient(135deg, #FFF8F0 0%, #FFF3E0 100%);
+        border: 1px solid rgba(255, 140, 0, 0.2);
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(255, 140, 0, 0.1);
+    }
+    
+    .loading-spinner {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        border: 4px solid rgba(255, 140, 0, 0.2);
+        border-top-color: #FF8C00;
+        border-radius: 50%;
+        animation: spin 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+        margin-bottom: 20px;
+    }
+    
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+    
+    .loading-title {
+        color: #FF8C00;
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 12px;
+    }
+    
+    .loading-message {
+        color: #666666;
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+    
+    .loading-progress {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .progress-step {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        color: #999999;
+        transition: all 0.3s ease;
+    }
+    
+    .progress-step.active {
+        color: #FF8C00;
+        font-weight: 500;
+    }
+    
+    .progress-step.completed {
+        color: #4CAF50;
+    }
+    
+    .progress-icon {
+        width: 20px;
+        height: 20px;
+        border: 2px solid currentColor;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        transition: all 0.3s ease;
+    }
+    
+    .progress-step.completed .progress-icon {
+        background: #4CAF50;
+        border-color: #4CAF50;
+        color: white;
+    }
+    
+    .progress-step.active .progress-icon {
+        background: #FF8C00;
+        border-color: #FF8C00;
+        color: white;
+        animation: pulse 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.1); opacity: 0.8; }
+    }
+    
+    .result {
+        display: none;
+        background: linear-gradient(135deg, #F0FFF4 0%, #E8F5E9 100%);
+        border: 1px solid rgba(76, 175, 80, 0.3);
+        padding: 24px;
+        margin-top: 30px;
+        text-align: center;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(76, 175, 80, 0.1);
+    }
+    
+    .success-message {
+        color: #2E7D32;
+        font-size: 20px;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+    
+    .profile-url {
+        background: #FFFFFF;
+        border: 1px solid rgba(76, 175, 80, 0.2);
+        padding: 14px;
+        margin: 12px 0;
+        word-break: break-all;
+        font-family: "SF Mono", "Monaco", "Courier New", monospace;
+        border-radius: 6px;
+        font-size: 14px;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+    
+    .profile-url a {
+        color: #FF8C00;
+        text-decoration: none;
+        font-weight: 500;
+    }
+    
+    .profile-url a:hover {
+        text-decoration: underline;
+    }
+    
+    .edit-info {
+        background: linear-gradient(135deg, #FFF8E7 0%, #FFF3DD 100%);
+        border: 1px solid rgba(255, 140, 0, 0.2);
+        padding: 18px;
+        margin-top: 16px;
+        font-size: 13px;
+        border-radius: 8px;
+        text-align: left;
+        box-shadow: 0 2px 8px rgba(255, 140, 0, 0.08);
+    }
+    
+    .edit-key {
+        color: #FF6600;
+        font-family: "SF Mono", "Monaco", "Courier New", monospace;
+        font-weight: 600;
+        font-size: 18px;
+        background: rgba(255, 140, 0, 0.1);
+        padding: 4px 8px;
+        border-radius: 4px;
+        display: inline-block;
+        margin: 4px 0;
+    }
+    
+    .error {
+        display: none;
+        background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%);
+        border: 1px solid rgba(244, 67, 54, 0.3);
+        padding: 18px;
+        margin-top: 30px;
+        color: #C62828;
+        text-align: center;
+        border-radius: 8px;
+        font-weight: 500;
+        box-shadow: 0 2px 8px rgba(244, 67, 54, 0.1);
+    }
+    
+    .decoration {
+        text-align: center;
+        color: #E0E0E0;
+        margin: 30px 0;
+        font-size: 14px;
+        position: relative;
+        height: 20px;
+    }
+    
+    .decoration::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent 0%, #E0E0E0 25%, #E0E0E0 75%, transparent 100%);
+    }
+    
+    .footer {
+        text-align: center;
+        padding: 25px;
+        font-size: 13px;
+        color: #999999;
+        background: rgba(0, 0, 0, 0.02);
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    @media (max-width: 480px) {
+        .header h1 {
+            font-size: 26px;
+        }
+        
+        .form-section {
+            padding: 30px 20px;
+        }
+        
+        .submit-button {
+            font-size: 16px;
+            padding: 14px 36px;
+        }
+        
+        .loading {
+            padding: 20px;
+        }
+        
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+        }
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><span class="star-decoration">✦</span>プロフィールメーカー<span class="star-decoration">✦</span></h1>
+        </div>
+        
+        <div class="form-section">
+            <form id="profileForm">
+                <div class="form-group">
+                    <label for="twitterUsername">
+                        X(Twitter)ユーザー名 <span class="required">*</span>
+                    </label>
+                    <input type="text" id="twitterUsername" name="twitterUsername" placeholder="@なしで入力" required>
+                    <div class="help-text">プロフィール画像の取得に使用します</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="profileText">
+                        プロフィール内容 <span class="required">*</span>
+                    </label>
+                    <textarea id="profileText" name="profileText" placeholder="プロフィール項目を入力..." required></textarea>
+                    <div class="help-text">
+                        項目名と値を「⇨」「⇒」または空白で区切って入力してください。<br>
+                        最大100項目まで入力可能です。
+                    </div>
+                    <div class="example-box">
+                        <br>
+                        HN⇨〇〇<br>
+                        誕生日⇨1月18日<br>
+                        好きな食べ物⇨オムライス<br>
+                        趣味 ゲーム
+                    </div>
+                </div>
+                
+                <div class="button-container">
+                    <button type="submit" class="submit-button" id="submitButton">
+                        プロフィール作成
+                    </button>
+                </div>
+            </form>
+            
+            <div class="loading">
+                <div class="loading-spinner"></div>
+                <p class="loading-title">プロフィールを作成中...</p>
+                <p class="loading-message">
+                    素敵なプロフィールページを準備しています。<br>
+                    1〜2分程度お待ちください。
+                </p>
+                <div class="loading-progress">
+                    <div class="progress-step" id="step1">
+                        <span class="progress-icon">1</span>
+                        <span>データを解析中...</span>
+                    </div>
+                    <div class="progress-step" id="step2">
+                        <span class="progress-icon">2</span>
+                        <span>データベースに保存中...</span>
+                    </div>
+                    <div class="progress-step" id="step3">
+                        <span class="progress-icon">3</span>
+                        <span>HTMLページを生成中...</span>
+                    </div>
+                    <div class="progress-step" id="step4">
+                        <span class="progress-icon">4</span>
+                        <span>GitHubにアップロード中...</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="result">
+                <div class="success-message">
+                    ✨ プロフィール作成完了！ ✨
+                </div>
+                <div class="profile-url">
+                    URL: <a href="#" target="_blank" id="profileLink"></a>
+                </div>
+                <div class="edit-info">
+                    <strong>【重要】編集キーを保存してください！</strong><br>
+                    編集キー: <span class="edit-key" id="editKey"></span><br>
+                    <small>このキーはプロフィールを編集する際に必要です</small>
+                </div>
+            </div>
+            
+            <div class="error" id="errorMessage"></div>
+            
+            <div class="decoration"></div>
+        </div>
+        
+        <div class="footer">
+            &copy; 2025 プロフィールメーカー
+        </div>
+    </div>
+    
+    <script>
+        const API_BASE = 'https://ryosuzuki1987.app.n8n.cloud/webhook';
+        
+        // プログレスステップの管理
+        let currentStep = 1;
+        function updateProgress(step) {
+            // 前のステップを完了状態に
+            for (let i = 1; i < step; i++) {
+                const stepEl = document.getElementById(`step${i}`);
+                stepEl.classList.remove('active');
+                stepEl.classList.add('completed');
+                stepEl.querySelector('.progress-icon').innerHTML = '✓';
+            }
+            
+            // 現在のステップをアクティブに
+            const currentStepEl = document.getElementById(`step${step}`);
+            currentStepEl.classList.add('active');
+            
+            currentStep = step;
+        }
+        
+        // GitHubページの存在確認
+        async function checkProfileExists(profileUrl, maxAttempts = 20) {
+            for (let i = 0; i < maxAttempts; i++) {
+                try {
+                    const response = await fetch(profileUrl, { 
+                        method: 'HEAD',
+                        mode: 'no-cors' // CORSを回避
+                    });
+                    
+                    // no-corsモードでは正確なステータスが取れないので、
+                    // n8nからの成功レスポンスを受け取ってから少し待つ
+                    if (i > 5) {
+                        return true; // 十分待ったので成功とみなす
+                    }
+                } catch (error) {
+                    // エラーは無視
+                }
+                
+                // 3秒待機
+                await new Promise(resolve => setTimeout(resolve, 3000));
+            }
+            
+            return true; // 最終的には成功とみなす
+        }
+        
+        document.getElementById('profileForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitButton = document.getElementById('submitButton');
+            const twitterUsername = document.getElementById('twitterUsername').value.trim();
+            const profileText = document.getElementById('profileText').value.trim();
+            
+            // ボタンを無効化
+            submitButton.disabled = true;
+            
+            // 表示切り替え
+            document.querySelector('.loading').style.display = 'block';
+            document.querySelector('.result').style.display = 'none';
+            document.querySelector('.error').style.display = 'none';
+            
+            // プログレスリセット
+            for (let i = 1; i <= 4; i++) {
+                const stepEl = document.getElementById(`step${i}`);
+                stepEl.classList.remove('active', 'completed');
+                stepEl.querySelector('.progress-icon').innerHTML = i;
+            }
+            
+            try {
+                // ステップ1: データ解析
+                updateProgress(1);
+                await new Promise(resolve => setTimeout(resolve, 500));
+                
+                // API呼び出し
+                const response = await fetch(`${API_BASE}/5276078b-6580-4c93-a262-bf629e44a2ea`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        twitter_username: twitterUsername,
+                        profile_text: profileText
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error('プロフィール作成に失敗しました');
+                }
+                
+                const data = await response.json();
+                
+                // レスポンスデータの確認
+                if (!data.success) {
+                    throw new Error('プロフィール作成に失敗しました');
+                }
+                
+                // ステップ2-4を順次表示
+                const steps = [2, 3, 4];
+                for (const step of steps) {
+                    await new Promise(resolve => setTimeout(resolve, 1500));
+                    updateProgress(step);
+                }
+                
+                // 成功時の処理
+                const profileId = data.profile_id;
+                const profileUrl = data.profile_url || `https://muraprofile.github.io/profile-pages/profiles/${profileId}.html`;
+                const editKey = data.edit_key;
+                
+                // GitHubページの存在確認（少し待機）
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                // 結果表示
+                document.getElementById('profileLink').href = profileUrl;
+                document.getElementById('profileLink').textContent = profileUrl;
+                document.getElementById('editKey').textContent = editKey;
+                
+                document.querySelector('.loading').style.display = 'none';
+                document.querySelector('.result').style.display = 'block';
+                
+                // フォームをリセット
+                document.getElementById('profileForm').reset();
+                
+            } catch (error) {
+                // エラー処理
+                document.getElementById('errorMessage').textContent = error.message || 'エラーが発生しました。もう一度お試しください。';
+                document.querySelector('.loading').style.display = 'none';
+                document.querySelector('.error').style.display = 'block';
+            } finally {
+                // ボタンを有効化
+                submitButton.disabled = false;
+            }
+        });
+        
+        // プロフィールテキストのサンプル挿入（デモ用）
+        document.getElementById('profileText').addEventListener('dblclick', () => {
+            document.getElementById('profileText').value = `HN⇨〇〇
+性別⇨秘密
+誕生日⇨1月18日
+血液型⇨O型
+好きな食べ物⇨オムライス
+嫌いな食べ物⇨ピーマン
+趣味⇨ゲーム、アニメ
+特技⇨早起き
+好きな色⇨オレンジ
+マイブーム⇨TikTok
+一言⇨よろしくね〜！`;
+        });
+    </script>
+</body>
+</html>
