@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<title>〇〇</title>
+<style>
+    * {
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    body {
+        background-color: #F5F5F5;
+        color: #333333;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", Meiryo, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        -webkit-text-size-adjust: 100%;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 480px;
+        margin: 0 auto;
+        background-color: #FFFFFF;
+        min-height: 100vh;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+    
+    header {
+        background: linear-gradient(135deg, #FF8C00 0%, #FF6B00 100%);
+        color: #FFFFFF;
+        padding: 20px 15px;
+        text-align: center;
+        font-weight: bold;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    header h1 {
+        font-size: clamp(20px, 5vw, 24px);
+        margin: 0;
+        letter-spacing: 0.5px;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+    
+    main {
+        padding: 20px 15px;
+    }
+    
+    .profile-header {
+        text-align: center;
+        margin-bottom: 30px;
+        padding: 20px 0;
+    }
+    
+    .profile-img {
+        width: clamp(80px, 20vw, 110px);
+        height: clamp(80px, 20vw, 110px);
+        border-radius: 50%;
+        border: 4px solid #FFD4A3;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        object-fit: cover;
+    }
+    
+    .profile-name {
+        margin-top: 15px;
+        font-size: clamp(18px, 4.5vw, 22px);
+        font-weight: bold;
+        color: #FF8C00;
+        word-break: break-word;
+    }
+    
+    .twitter-link {
+        margin-top: 8px;
+    }
+    
+    .twitter-link a {
+        color: #FF8C00;
+        text-decoration: none;
+        font-size: clamp(14px, 3.5vw, 16px);
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 5px 10px;
+        border-radius: 20px;
+        transition: background-color 0.3s ease;
+    }
+    
+    .twitter-link a:hover, .twitter-link a:active {
+        background-color: #FFF3E0;
+    }
+    
+    .profile-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin-top: 20px;
+        background-color: #FAFAFA;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    
+    .profile-table th, .profile-table td {
+        border-bottom: 1px solid #E8E8E8;
+        padding: 12px 15px;
+        vertical-align: top;
+        font-size: clamp(14px, 3.5vw, 16px);
+    }
+    
+    .profile-table tr:last-child th,
+    .profile-table tr:last-child td {
+        border-bottom: none;
+    }
+    
+    .profile-table th {
+        background-color: #FFF3E0;
+        width: 35%;
+        text-align: left;
+        color: #666666;
+        font-weight: 600;
+        word-break: break-word;
+    }
+    
+    .profile-table td {
+        background-color: #FFFFFF;
+        color: #333333;
+        word-break: break-word;
+        line-height: 1.5;
+    }
+    
+    .decoration {
+        color: #CCCCCC;
+        text-align: center;
+        letter-spacing: 2px;
+        margin: 25px 0;
+        font-size: clamp(12px, 3vw, 14px);
+        user-select: none;
+    }
+    
+    .message {
+        text-align: center;
+        margin: 25px 0;
+        padding: 15px 20px;
+        background: linear-gradient(135deg, #FFF8E7 0%, #FFEDD5 100%);
+        border-radius: 12px;
+        color: #FF8C00;
+        font-weight: bold;
+        font-size: clamp(14px, 3.5vw, 16px);
+        box-shadow: 0 2px 6px rgba(255, 140, 0, 0.1);
+        animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-3px); }
+    }
+    
+    footer {
+        text-align: center;
+        padding: 30px 15px;
+        font-size: clamp(11px, 2.8vw, 13px);
+        background-color: #FAFAFA;
+        color: #999999;
+        border-top: 1px solid #E8E8E8;
+    }
+    
+    .counter {
+        border: 2px solid #FFD4A3;
+        padding: 10px 20px;
+        display: inline-block;
+        background-color: #FFF8E7;
+        border-radius: 25px;
+        color: #FF8C00;
+        font-weight: bold;
+        font-size: clamp(12px, 3vw, 14px);
+        margin-bottom: 15px;
+        box-shadow: 0 2px 6px rgba(255, 140, 0, 0.1);
+    }
+    
+    .counter img {
+        vertical-align: middle;
+        height: 20px;
+        display: inline-block;
+        margin: 0 4px;
+    }
+    
+    /* モバイル専用の調整 */
+    @media (max-width: 480px) {
+        .container {
+            box-shadow: none;
+        }
+        
+        header {
+            padding: 15px 10px;
+        }
+        
+        main {
+            padding: 15px 10px;
+        }
+        
+        .profile-table th,
+        .profile-table td {
+            padding: 10px 12px;
+        }
+        
+        .decoration {
+            margin: 20px 0;
+        }
+        
+        footer {
+            padding: 25px 10px;
+        }
+    }
+    
+    /* タッチデバイス用の調整 */
+    @media (hover: none) {
+        .twitter-link a:active {
+            transform: scale(0.95);
+        }
+        
+        .message {
+            animation: none;
+        }
+    }
+    
+    /* ダークモード対応 */
+    @media (prefers-color-scheme: dark) {
+        body {
+            background-color: #1a1a1a;
+        }
+        
+        .container {
+            background-color: #2a2a2a;
+            color: #e0e0e0;
+        }
+        
+        .profile-table td {
+            background-color: #333333;
+            color: #e0e0e0;
+        }
+        
+        .profile-table th {
+            background-color: #3a3a3a;
+            color: #b0b0b0;
+        }
+        
+        footer {
+            background-color: #2a2a2a;
+            border-top-color: #444444;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>★ My Profile ★</h1>
+    </header>
+    <main>
+        <div class="profile-header">
+            <img src="https://unavatar.io/twitter/haru_BCG2022" 
+                 class="profile-img" 
+                 alt="プロフィール画像" 
+                 loading="lazy"
+                 onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNGRkQ0QTMiLz4KPHRleHQgeD0iNTAiIHk9IjU1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjQwIiBmaWxsPSIjRkY4QzAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiI+4piGPC90ZXh0Pgo8L3N2Zz4='">
+            <div class="profile-name">〇〇</div>
+            <div class="twitter-link">
+                <a href="https://twitter.com/haru_BCG2022" target="_blank" rel="noopener noreferrer">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                    @haru_BCG2022
+                </a>
+            </div>
+        </div>
+        
+        <div class="decoration">─────────────</div>
+        
+        <table class="profile-table">
+            
+    <tr>
+      <th>HN</th>
+      <td>〇〇</td>
+    </tr>
+    <tr>
+      <th>誕生日</th>
+      <td>1月18日</td>
+    </tr>
+    <tr>
+      <th>好きな食べ物</th>
+      <td>オムライス</td>
+    </tr>
+    <tr>
+      <th>趣味</th>
+      <td>ゲーム</td>
+    </tr>
+        </table>
+        
+        <div class="decoration">─────────────</div>
+        
+        <div class="message">
+            ＼ よろしくお願いします ／
+        </div>
+    </main>
+    <footer>
+        <div class="counter">
+            あなたは <img src="https://hits.sh/muraprofile.github.io/profiles/snrfen.svg?style=flat&label=%20&color=FF8C00&labelColor=FF8C00" 
+                         alt="訪問者数" 
+                         loading="lazy"> 人目の訪問者です
+        </div>
+        <p>&copy; 2025 〇〇</p>
+    </footer>
+</div>
+</body>
+</html>
